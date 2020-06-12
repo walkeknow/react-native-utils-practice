@@ -1,5 +1,12 @@
-import React, { Fragment } from 'react'
-import { StyleSheet, Text, View, Platform, Settings } from 'react-native'
+import React, { Fragment, Component } from 'react'
+import {
+  StyleSheet,
+  Text,
+  View,
+  Platform,
+  Settings,
+  Animated,
+} from 'react-native'
 import styled from 'styled-components'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import { NavigationContainer } from '@react-navigation/native'
@@ -36,6 +43,13 @@ const WelcomeBtn = styled.TouchableOpacity`
   align-items: center;
   margin: 20px;
 `
+
+const styles = StyleSheet.create({
+  img: {
+    width: 200,
+    height: 200,
+  },
+})
 
 function SystemSettings({ navigation }) {
   return (
@@ -110,12 +124,34 @@ function Home({ navigation }) {
   )
 }
 
-function Dashboard() {
-  return (
-    <CenterView>
-      <WelcomeText>Dashboard</WelcomeText>
-    </CenterView>
-  )
+class Dashboard extends Component {
+  state = {
+    opacity: new Animated.Value(0),
+    width: new Animated.Value(0),
+    height: new Animated.Value(0),
+  }
+  componentDidMount() {
+    const { opacity, width, height } = this.state
+
+    Animated.timing(opacity, { toValue: 1, duration: 1000 }).start()
+    Animated.spring(width, {toValue: 300, speed: 5}).start()
+    Animated.spring(height, {toValue: 300, speed: 5}).start()
+  }
+  render() {
+    const { opacity, width, height } = this.state
+    return (
+      <CenterView>
+        <View>
+          <Animated.Image
+            style={[styles.img, { opacity, width, height }]}
+            source={{
+              uri: 'https://tylermcginnis.com/tylermcginnis_glasses-300.png',
+            }}
+          />
+        </View>
+      </CenterView>
+    )
+  }
 }
 
 function AppSettings() {
