@@ -1,8 +1,18 @@
-## Using Navigation, Animation, ImagePicker and Styled Components in React Native Apps
+# A demonstration of using popular libraries in a React Native app
 
-Features
+## Features
+- Includes a basic example showing how to use and nest Tab, Drawer, and Stack Navigators using [React Navigation](https://reactnavigation.org)
+- Shows how to style Components with CSS syntax using [styled-components](https://styled-components.com)
+- Includes an example of a scaling and fading-in animation using the built-in [Animated](https://docs.expo.io/versions/latest/react-native/animated) library
+- Shows how to use the [ImagePicker](https://docs.expo.io/versions/latest/sdk/imagepicker/) library to select and display an image 
 
-- Includes a basic example showing how to use and nest Tab, Drawer, and Stack Navigators using the Expo react-navigation package
-- Shows how to style Components using the styled-components library
-- Includes an example of a scaling and fading-in animation using the built-in Animation library
-- Shows how to use Expo's ImagePicker library to select and display an image
+## Install
+- Install the latest version of `expo-cli` using `npm i -g expo-cli`
+- Navigate to the project directory and run `yarn add expo`
+- Run the development server with `yarn start`
+- Press `i` or `a` to open the app on iOS or Android respectively
+
+## License
+This project is a public domain work, dedicated using
+[CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Feel free to do
+whatever you want with it.
